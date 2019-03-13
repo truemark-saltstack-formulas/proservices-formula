@@ -1,2 +1,3 @@
-include
+include:
  - tmps.editor
+ - tmps.virtual
