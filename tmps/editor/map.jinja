@@ -1,6 +1,12 @@
 {% set editor = salt['grains.filter_by']({
     'default': {
+        'package': 'vim',
         'vimrc_location': '/etc/vim/vimrc.local',
+        'vimrc_file': 'salt://tmps/editor/files/vimrc.local',
+    },
+    'RedHat': {
+        'package': 'vim-enhanced',
+        'vimrc_location': '/etc/vimrc.local',
         'vimrc_file': 'salt://tmps/editor/files/vimrc.local',
     }
 }, merge=salt['pillar.get']('tmps:editor:lookup'), base='default') %}
