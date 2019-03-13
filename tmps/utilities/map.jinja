@@ -1,0 +1,8 @@
+{% set utilities = salt['grains.filter_by']({
+    'default': {
+        'dig': 'dnsutils'
+    },
+    'RedHat': {
+        'dig': 'bind-utils'
+    }
+}, merge=salt['pillar.get']('tmps:utilities:lookup'), base='default') %}
