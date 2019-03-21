@@ -1,0 +1,12 @@
+{% set saltconf = salt['grains.filter_by']({
+  'default': {
+    'master': {
+      'config_dir': '/etc/salt/master.d',
+      'log_level': 'warning'
+    },
+    'minion': {
+      'config_dir': '/etc/salt/minion.d',
+      'log_level': 'warning'
+    }
+  }
+}, merge=salt['pillar.get']('tmps:saltconf'), base='default') %}
